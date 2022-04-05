@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+    id 'groovy'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.10'
+    testImplementation platform('org.junit:junit-bom:5.8.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'lslauncher.LSLauncher'
+    }
+}
+
+//test {
+//    useJUnitPlatform()
+//}
+
+application {
+    mainClassName = 'lslauncher.LSLauncher'
+}
