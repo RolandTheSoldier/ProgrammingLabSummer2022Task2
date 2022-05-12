@@ -1,5 +1,10 @@
 package lstest;
 
-public class LSTest {
+import org.junit.jupiter.api.Test;
 
+public class LSTest {
+    @Test
+    void LSTest() {
+
+    }
 }
