@@ -8,6 +8,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.kohsuke.args4j:args4j-maven-plugin:2.33'
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'org.codehaus.groovy:groovy-all:3.0.10'
     testImplementation platform('org.junit:junit-bom:5.8.2')
@@ -15,8 +16,12 @@ dependencies {
 }
 
 jar {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
     manifest {
         attributes 'Main-Class': 'lslauncher.LSLauncher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
