@@ -1,15 +1,19 @@
 package lslauncher;
 
-import ls.LS;
+import ls.Ls;
+
+import java.io.IOException;
+
 import org.kohsuke.args4j.Option;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
-import java.io.IOException;
 
 
-public class LSLauncher {
+
+
+public class LsLauncher {
 
     @Option(name = "-l", usage = "Switches output to long format")
     private boolean longOption = false;
@@ -23,17 +27,17 @@ public class LSLauncher {
     @Option(name = "-o", metaVar = "OutputFile", usage = "Specifies the name of the file to output the result to")
     private String outputOption = null;
 
-    //  Придумать значение по умолчанию (the current directory by default)
-    //  (required = true)
     @Argument(metaVar = "DirectoryOrFile", usage = "Directory or file to list the content")
     private String dirOrFileName = ".";
 
 
+
+
     public static void main(String[] args) {
-        new LSLauncher().launch(args);
+        new LsLauncher().launch(args);
     }
 
-    private void launch(String[] args) {
+    void launch(String[] args) {
         CmdLineParser parser = new CmdLineParser(this);
 
         try {
@@ -46,12 +50,11 @@ public class LSLauncher {
         }
 
         try {
-            LS ls = new LS(longOption, humanReadableOption,
+            Ls ls = new Ls(longOption, humanReadableOption,
                     reverseOption, outputOption, dirOrFileName);
-            ls.printDirOrFileContent();
-        } catch (IOException e) {
-            //System.err.println(e.getMessage());
-            e.printStackTrace();
+            System.out.println(ls.printDirOrFileContent());
+        } catch (IOException | IllegalArgumentException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
