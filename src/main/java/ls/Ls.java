@@ -1,11 +1,10 @@
 package ls;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -125,9 +124,9 @@ public class Ls {
 
 
         if (outputOption != null) {
-            try (BufferedWriter writer = new BufferedWriter(
-                    new FileWriter(outputOption.toString()))) {
-                writer.write(contentToPrint);
+            try (DataOutputStream stream = new DataOutputStream(
+                    new FileOutputStream(outputOption.toString()))) {
+                stream.write(contentToPrint.getBytes(StandardCharsets.UTF_8));
             }
             return "";
         }

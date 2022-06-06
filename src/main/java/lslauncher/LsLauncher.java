@@ -10,9 +10,6 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 
-
-
-
 public class LsLauncher {
 
     @Option(name = "-l", usage = "Switches output to long format")
@@ -29,8 +26,6 @@ public class LsLauncher {
 
     @Argument(metaVar = "DirectoryOrFile", usage = "Directory or file to list the content")
     private String dirOrFileName = ".";
-
-
 
 
     public static void main(String[] args) {
