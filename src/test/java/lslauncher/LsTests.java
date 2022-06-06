@@ -51,44 +51,52 @@ public class LsTests {
 
 
         // No longerOption
-        assertEquals(contentOf(toCompareWith + "/test1_.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(false, false,
                         false, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
-        assertEquals(contentOf(toCompareWith + "/test1_r.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_r.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(false, false,
                         true, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
-        assertEquals(contentOf(toCompareWith + "/test1_h.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_h.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(false, true,
                         false, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
-        assertEquals(contentOf(toCompareWith + "/test1_hr.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_hr.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(false, true,
                         true, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
 
         // With longerOption
-        assertEquals(contentOf(toCompareWith + "/test1_l.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_l.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(true, false,
                         false, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
-        assertEquals(contentOf(toCompareWith + "/test1_lr.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_lr.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(true, false,
                         true, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
-        assertEquals(contentOf(toCompareWith + "/test1_lh.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_lh.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(true, true,
                         false, null, toPrint)
                         .returnOrOutputContent()
                         .replaceAll("\\r\\n", "\n"));
-        assertEquals(contentOf(toCompareWith + "/test1_lhr.txt"),
+        assertEquals(contentOf(toCompareWith + "/test1_lhr.txt")
+                        .replaceAll("\\r\\n", "\n"),
                 new Ls(true, true,
                         true, null, toPrint)
                         .returnOrOutputContent()
@@ -107,46 +115,62 @@ public class LsTests {
         new Ls(false, false, false,
                 toOutput + "/test1_o.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_.txt"),
-                contentOf(toOutput + "/test1_o.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_o.txt")
+                        .replaceAll("\\r\\n", "\n"));
         new Ls(false, false, true,
                 toOutput + "/test1_ro.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_r.txt"),
-                contentOf(toOutput + "/test1_ro.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_r.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_ro.txt")
+                        .replaceAll("\\r\\n", "\n"));
         new Ls(false, true, false,
                 toOutput + "/test1_ho.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_h.txt"),
-                contentOf(toOutput + "/test1_ho.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_h.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_ho.txt")
+                        .replaceAll("\\r\\n", "\n"));
         new Ls(false, true, true,
                 toOutput + "/test1_hro.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_hr.txt"),
-                contentOf(toOutput + "/test1_hro.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_hr.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_hro.txt")
+                        .replaceAll("\\r\\n", "\n"));
 
 
         // With longerOption
         new Ls(true, false, false,
                 toOutput + "/test1_lo.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_l.txt"),
-                contentOf(toOutput + "/test1_lo.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_l.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_lo.txt")
+                        .replaceAll("\\r\\n", "\n"));
         new Ls(true, false, true,
                 toOutput + "/test1_lro.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_lr.txt"),
-                contentOf(toOutput + "/test1_lro.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_lr.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_lro.txt")
+                        .replaceAll("\\r\\n", "\n"));
         new Ls(true, true, false,
                 toOutput + "/test1_lho.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_lh.txt"),
-                contentOf(toOutput + "/test1_lho.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_lh.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_lho.txt")
+                        .replaceAll("\\r\\n", "\n"));
         new Ls(true, true, true,
                 toOutput + "/test1_lhro.txt", toPrint)
                 .returnOrOutputContent();
-        assertEquals(contentOf(toCompareWith + "/test1_lhr.txt"),
-                contentOf(toOutput + "/test1_lhro.txt"));
+        assertEquals(contentOf(toCompareWith + "/test1_lhr.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                contentOf(toOutput + "/test1_lhro.txt")
+                        .replaceAll("\\r\\n", "\n"));
 
 
     }
@@ -174,8 +198,10 @@ public class LsTests {
                 toPrintArbitrarySizes + "/test5.txt");
         ls2.setListOfSizesDouble(new ArrayList<>(List.of(0009876.54321)));
         assertEquals(contentOf(toOutputArbitrarySizes
-                + "/testSizes1_lro.txt"), ls2.returnOrOutputContent()
-                .replaceAll("\\r\\n", "\n"));
+                        + "/testSizes1_lro.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                ls2.returnOrOutputContent()
+                        .replaceAll("\\r\\n", "\n"));
 
 
         ls = new Ls(true, false,
@@ -184,11 +210,13 @@ public class LsTests {
                 + "/test3.txt");
         ls.returnOrOutputContent();
         assertEquals(contentOf(toOutputArbitrarySizes
-                + "/testSizes1_lo.txt"), new Ls(true,
-                false, false, null,
-                toPrintArbitrarySizes + "/test3.txt")
-                .returnOrOutputContent()
-                .replaceAll("\\r\\n", "\n"));
+                        + "/testSizes1_lo.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                new Ls(true,
+                        false, false, null,
+                        toPrintArbitrarySizes + "/test3.txt")
+                        .returnOrOutputContent()
+                        .replaceAll("\\r\\n", "\n"));
 
 
         ls = new Ls(false, false,
@@ -198,11 +226,13 @@ public class LsTests {
         ls.setListOfSizesDouble(al);
         ls.returnOrOutputContent();
         assertEquals(contentOf(toOutputArbitrarySizes
-                + "/testSizes1_o.txt"), new Ls(false,
-                false, false,
-                null, toPrintArbitrarySizes
-                + "/test8.txt").returnOrOutputContent()
-                .replaceAll("\\r\\n", "\n"));
+                        + "/testSizes1_o.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                new Ls(false,
+                        false, false,
+                        null, toPrintArbitrarySizes
+                        + "/test8.txt").returnOrOutputContent()
+                        .replaceAll("\\r\\n", "\n"));
 
 
         ls = new Ls(true, true,
@@ -219,8 +249,10 @@ public class LsTests {
         ls2.setListOfSizesDouble(new ArrayList<>(
                 List.of(8_888_888_888_888_888_888.)));
         assertEquals(contentOf(toOutputArbitrarySizes
-                + "/testSizes1_lho.txt"), ls2.returnOrOutputContent()
-                .replaceAll("\\r\\n", "\n"));
+                        + "/testSizes1_lho.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                ls2.returnOrOutputContent()
+                        .replaceAll("\\r\\n", "\n"));
 
 
         ls = new Ls(true, true, true,
@@ -232,8 +264,10 @@ public class LsTests {
                 null, toPrintArbitrarySizes);
         ls2.setListOfSizesDouble(al);
         assertEquals(contentOf(toOutputArbitrarySizes
-                + "/testSizes1_lhro.txt"), ls2.returnOrOutputContent()
-                .replaceAll("\\r\\n", "\n"));
+                        + "/testSizes1_lhro.txt")
+                        .replaceAll("\\r\\n", "\n"),
+                ls2.returnOrOutputContent()
+                        .replaceAll("\\r\\n", "\n"));
 
 
     }
