@@ -7,6 +7,7 @@
 *.gradle.kts    text diff=kotlin
 
 # These files are text and should be normalized (Convert crlf => lf)
+*.txt           text eol=crlf
 *.css           text diff=css
 *.scss          text diff=css
 *.sass          text

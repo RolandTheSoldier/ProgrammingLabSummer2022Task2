@@ -124,7 +124,6 @@ public class Ls {
                 ? getOnlyNames() : getLongFormat();
 
 
-
         if (outputOption != null) {
             try (BufferedWriter writer = new BufferedWriter(
                     new FileWriter(outputOption.toString()))) {
@@ -142,17 +141,20 @@ public class Ls {
     String getOnlyNames() throws IOException {
         StringBuilder pathContentString = new StringBuilder();
         if (!Files.isDirectory(dirOrFileName)) {
-            pathContentString.append(dirOrFileName.getFileName()).append("\n");
+            pathContentString.append(dirOrFileName.getFileName())
+                    .append(System.lineSeparator());
         } else {
             try (DirectoryStream<Path> listOfContent
                          = Files.newDirectoryStream(dirOrFileName)) {
                 for (Path path : listOfContent) {
                     if (reverseOption) {
                         pathContentString.insert(
-                                0, path.getFileName() + "\n");
+                                0, path.getFileName()
+                                        + System.lineSeparator());
                     } else {
                         pathContentString.append(
-                                path.getFileName()).append("\n");
+                                        path.getFileName())
+                                .append(System.lineSeparator());
                     }
                 }
             }
@@ -326,7 +328,7 @@ public class Ls {
         fileInfo.append("    ");
         fileInfo.append(String.format(Locale.US, formatterTime,
                 Files.getLastModifiedTime(filePath))).append("    ");
-        fileInfo.append(filePath.getFileName()).append("\n");
+        fileInfo.append(filePath.getFileName()).append(System.lineSeparator());
 
         return fileInfo.toString();
     }
