@@ -52,11 +52,13 @@ public class LsTests {
 
         // No longerOption
         assertEquals(contentOf(toCompareWith + "/test1_.txt")
-                        .replaceAll("\\r\\n", "\n"),
+                        .replaceAll("\\r\\n", "\n")
+                        .replaceAll("\\r", "\n"),
                 new Ls(false, false,
                         false, null, toPrint)
                         .returnOrOutputContent()
-                        .replaceAll("\\r\\n", "\n"));
+                        .replaceAll("\\r\\n", "\n")
+                        .replaceAll("\\r", "\n"));
         assertEquals(contentOf(toCompareWith + "/test1_r.txt")
                         .replaceAll("\\r\\n", "\n"),
                 new Ls(false, false,
