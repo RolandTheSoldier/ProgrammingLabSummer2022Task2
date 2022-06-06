@@ -52,7 +52,7 @@ public class LsLauncher {
         try {
             Ls ls = new Ls(longOption, humanReadableOption,
                     reverseOption, outputOption, dirOrFileName);
-            System.out.println(ls.printDirOrFileContent());
+            System.out.println(ls.returnOrOutputContent());
         } catch (IOException | IllegalArgumentException e) {
             System.err.println(e.getMessage());
         }
